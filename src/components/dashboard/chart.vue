@@ -1,19 +1,21 @@
 <script>
 import { Line } from 'vue-chartjs'
+
 export default {
   extends: Line,
-  props: {
-    chartdata: {
-      type: Object,
-      default: null,
-    },
-    options: {
-      type: Object,
-      default: null,
-    },
-  },
+  props: ['lineData', 'chartOptions'],
   mounted () {
-    this.renderChart(this.chartdata, this.options)
-  },
+    this.renderChart(this.lineData, this.chartOptions)
+  }, /*,
+    watch:{
+      lineData () {
+        this.renderChart(this.lineData, this.chartOptions);
+    },
+      chartOptions () {
+        this.renderChart(this.lineData, this.chartOptions);
+    }
+    } */
+  responsive: true,
+  maintainAspectRatio: false,
 }
 </script>
