@@ -1,93 +1,53 @@
 <template>
   <div class="dashboard">
-    <div class="row row-equal">
-      <div class="flex xs12 md6 lg6">
-        <div class="va-card">
-          <div class="va-card__header">
-            <div class="va-card__header-inner">Fluentbit Data</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row row-equal">
-      <div class="flex xs12 md6 lg6">
-        <div class="va-card">
-          <div class="va-card__header">
-            <div class="va-card__header-inner">
-              <line-chart :dataset="chartData" :labels="label"  :isReady="isReady"></line-chart>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row row-equal">
-      <div class="flex xs12 md6 lg6">
-        <div class="va-card">
-          <div class="va-card__header">
-            <div class="va-card__header-inner">
-              <InputChart />
-            </div>
-          </div>
-        </div>
-      </div>
+    <div v-if="isReady">
+      <input-metrics :input-data="inputMetricsData"></input-metrics>
     </div>
   </div>
 </template>
 
 <script>
-import LineChart from './chart.vue'
-import InputChart from './InputChart.vue'
-
+import InputMetrics from './InputMetrics'
 import axios from 'axios'
-
 export default {
   name: 'dashboard',
   components: {
-    LineChart,
-    InputChart,
+    InputMetrics,
+  },
+  methods: {
+    axiosFetch (api) {
+      return axios
+        .get(`${api}/api/v1/metrics`)
+        .then(({ data }) => {
+          return data
+        })
+        .catch(err => console.log(err))
+    },
+    makeRequest (lock = false) {
+      const api = 'http://127.0.0.1:2020'
+      const date = new Date()
+      const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+      this.axiosFetch(api).then((data) => {
+        this.inputMetricsData = {
+          data: data.input,
+          time,
+          lock,
+        }
+        this.isReady = true
+      })
+    },
   },
   data () {
     return {
       isReady: false,
-      chartData: null,
-      label: null,
+      inputMetricsData: null,
     }
   },
   mounted () {
-    this.isReady = false
-    const api = 'http://127.0.0.1:2020'
-    axios
-      .get(`${api}/api/v1/metrics`)
-      .then(response => {
-        this.label = [response.data.input['cpu.0'].bytes, response.data.input['cpu.1'].bytes]
-        this.chartData = [{
-          label: 'CPU 1',
-          fill: false,
-          backgroundColor: 'red',
-          data: [0, response.data.input['cpu.0'].records],
-        },
-        {
-          label: 'CPU 2',
-          backgroundColor: 'blue',
-          fill: false,
-          data: [0, response.data.input['cpu.1'].records],
-        }]
-        this.label = [4, 5, 59, 5]
-        this.chartData = [{
-          label: 'CPU 1',
-          fill: false,
-          backgroundColor: 'red',
-          data: [4, 4, 4, 27],
-        },
-        {
-          label: 'CPU 2',
-          backgroundColor: 'blue',
-          fill: false,
-          data: [4, 5, 6, 5],
-        }]
-        this.isReady = true
-      })
-      .catch(err => console.log(err))
+    this.makeRequest()
+    setInterval(() => {
+      this.makeRequest(true)
+    }, 5000)
   },
 }
 </script>
