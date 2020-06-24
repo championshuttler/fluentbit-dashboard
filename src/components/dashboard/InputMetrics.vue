@@ -81,7 +81,7 @@ export default {
                 backgroundColor: 'rgba(50, 78, 238, 0.966)',
                 fill: false,
                 borderColor: 'rgba(0, 172, 224,1)',
-                data: [lineData, 0, 0, 0, 0],
+                data: [lineData],
               })
               continue
             }
@@ -94,7 +94,7 @@ export default {
                 borderColor: 'rgba(50, 199, 102,1)',
                 fill: false,
                 backgroundColor: '#f87979',
-                data: [lineData, 0, 0, 0, 0],
+                data: [lineData],
               })
             }
           }
