@@ -34,7 +34,7 @@ export default {
         labels: self.labels,
         datasets: self.dataSet,
       }
-    }, 120000)
+    }, 5000)
   },
   props: {
     labels: {
