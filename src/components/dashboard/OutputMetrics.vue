@@ -1,6 +1,6 @@
 <template>
   <div class="flex md12 xs12">
-    <va-card title="Input Metrics" :style="computedStyle">
+    <va-card title="Output Metrics" :style="computedStyle">
       <div class="row">
         <line-chart class="flex xs6 lg6" v-for="(value, name) in metrics" :key="name" :data-set="dataSets[name]" :metric-name="name" :labels="timeLabels"></line-chart>
       </div>
@@ -33,7 +33,7 @@ export default {
     }
   },
   props: {
-    inputData: {
+    outputData: {
       type: Object,
     },
   },
@@ -143,7 +143,7 @@ export default {
     },
   },
   watch: {
-    inputData: {
+    outputData: {
       immediate: true,
       handler (newValue, oldValue) {
         if (newValue) {

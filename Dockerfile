@@ -21,7 +21,7 @@ RUN /usr/local/bin/node-prune
 RUN rm -rf node_modules/ammap3
 RUN rm -rf node_modules/amcharts
 
-FROM node:10
+FROM node:10-alpine
 
 WORKDIR /app
 
@@ -33,3 +33,4 @@ COPY --from=BUILD_IMAGE /app/node_modules ./node_modules
 RUN npm i -g http-server
 
 CMD http-server ./dist
+
