@@ -3,16 +3,26 @@
     <div v-if="isReady">
       <input-metrics :input-data="inputMetricsData"></input-metrics>
     </div>
+    <div v-if="isReady" class="my-3">
+      <output-metrics :output-data="outputMetricsData"></output-metrics>
+    </div>
+    <div v-if="isReady" class="my-3">
+      <filter-metrics :filter-data="filterMetricsData"></filter-metrics>
+    </div>
   </div>
 </template>
 
 <script>
 import InputMetrics from './InputMetrics'
+import OutputMetrics from './OutputMetrics'
+import FilterMetrics from './FilterMetrics'
 import axios from 'axios'
 export default {
   name: 'dashboard',
   components: {
     InputMetrics,
+    OutputMetrics,
+    FilterMetrics,
   },
   methods: {
     axiosFetch (api) {
@@ -33,6 +43,16 @@ export default {
           time,
           lock,
         }
+        this.outputMetricsData = {
+          data: data.output,
+          time,
+          lock,
+        }
+        this.filterMetricsData = {
+          data: data.filter,
+          time,
+          lock,
+        }
         this.isReady = true
       })
     },
@@ -41,6 +61,7 @@ export default {
     return {
       isReady: false,
       inputMetricsData: null,
+      outputMetricsData: null,
     }
   },
   mounted () {
