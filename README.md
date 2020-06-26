@@ -11,7 +11,7 @@ First of all, make sure you have all prerequisites installed:
 After checking the prerequisites, follow these simple steps to install and use Fluentbit Dashboard:
 
 ```
-docker run -ti -p 127.0.0.1:2020:2020 fluent/fluent-bit:1.4 /fluent-bit/bin/fluent-bit -H -i cpu  -i cpu -o stdout -f 1
+docker run -ti -p 127.0.0.1:2020:2020 fluent/fluent-bit:1.4 /fluent-bit/bin/fluent-bit -H -i cpu -i cpu -F stdout -m '*' -o stdout -m '*' -f 1
 ```
 
 ```
