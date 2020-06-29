@@ -1,10 +1,15 @@
 <template>
-  <div class="flex md12 xs12">
-    <va-card title="Output Metrics" :style="computedStyle">
-      <div class="row">
-        <line-chart class="flex xs6 lg6" v-for="(value, name) in metrics" :key="name" :data-set="dataSets[name]" :metric-name="name" :labels="timeLabels"></line-chart>
-      </div>
-    </va-card>
+  <div class="grid row">
+    <div class="flex md12 xs12">
+      <va-card :style="computedStyle">
+        <template slot="header">
+          <h5 class="mt-0 mb-0">Output Metrics</h5>
+        </template>
+        <div class="row">
+          <line-chart class="flex xs6 md6" v-for="(value, name) in metrics" :key="name" :data-set="dataSets[name]" :metric-name="name" :labels="timeLabels"></line-chart>
+        </div>
+      </va-card>
+    </div>
   </div>
 </template>
 
@@ -17,7 +22,7 @@ export default {
   computed: {
     computedStyle () {
       return {
-        backgroundColor: this.$themes.dark,
+        backgroundColor: 'rgba(26, 26, 26, 0.966)',
         color: 'white',
       }
     },

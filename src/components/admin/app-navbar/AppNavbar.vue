@@ -23,7 +23,7 @@
           class="app-navbar__logo mr-3"
           to="/"
         >
-          <va-icon-vuestic />
+          <va-icon-vuestic/>
         </router-link>
       </div>
       <!-- <div class="app-navbar__center lg5 md4">
@@ -57,10 +57,10 @@
         :is-top-bar.sync="isTopBarProxy"
       />
     </div>
-    <div
+    <!-- <div
       class="app-navbar__shape"
       :style="shapeStyle"
-    ></div>
+    ></div> -->
   </nav>
 </template>
 
@@ -115,19 +115,19 @@ export default {
     },
     navbarStyle () {
       const style = {
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(26, 26, 26, 0.966)',
       }
 
-      if (this.contextConfig.gradient) {
-        style.backgroundColor = colorShiftHsl(this.$themes.secondary, {
-          s: -13,
-          l: 15,
-        }).css
-      }
+      // if (this.contextConfig.gradient) {
+      //   style.backgroundColor = colorShiftHsl(this.$themes.secondary, {
+      //     s: -13,
+      //     l: 15,
+      //   }).css
+      // }
 
-      if (this.contextConfig.shadow === 'sm') {
-        style.boxShadow = !this.isTopBar ? '0 2px 3px 0 rgba(52, 56, 85, 0.25)' : null
-      }
+      // if (this.contextConfig.shadow === 'sm') {
+      //   style.boxShadow = !this.isTopBar ? '0 2px 3px 0 rgba(52, 56, 85, 0.25)' : null
+      // }
       return style
     },
 

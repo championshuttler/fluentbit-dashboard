@@ -118,6 +118,7 @@ export default {
       if (this.isHovered || this.isActive) {
         return {
           color: this.$themes.primary,
+          // backgroundColor: 'rgba(161, 161, 161, 0.973)',
           backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
           borderColor: this.isActive ? this.$themes.primary : 'transparent',
         }

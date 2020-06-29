@@ -1,6 +1,6 @@
 <template>
-  <div class="grid__container flex-center small">
-    <chart class="canvas" v-if="flex" :height="220" :chart-data="flex" :options="option"></chart>
+  <div class="grid__container flex-center chart mx-2 my-2">
+    <chart v-if="flex" :height="220" :chart-data="flex" :options="option"></chart>
   </div>
 </template>
 
@@ -71,7 +71,7 @@ export default {
         labels: self.labels,
         datasets: self.dataSet,
       }
-    }, 5000)
+    }, 120000)
   },
   props: {
     labels: {
@@ -86,13 +86,19 @@ export default {
 </script>
 
 <style scoped>
-  .small {
+  /* @media only screen and (max-width: 1500px) {
+    .small {
+      width: 100%;
+    }
+  } */
+
+  .chart {
     color: rgba(161, 161, 161, 0.973);
-    margin: 5px;
-    padding: 5px;
     background-color: rgba(46, 45, 45, 0.966);
-    border-radius: 5px;
-    max-height: 300px;
-    max-width: 500px;
+    max-width: 48%;
+    min-width: 48%;
+
+    /* max-height: 300px;
+    width: 100% !important; */
   }
 </style>
