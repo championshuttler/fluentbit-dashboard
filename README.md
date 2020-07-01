@@ -4,6 +4,7 @@ First of all, make sure you have all prerequisites installed:
 - [Node.js](https://nodejs.org/en/) (>=8.9)
 - [npm](https://www.npmjs.com/get-npm) version 3+ (or [yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) version 1.16+)
 - [Docker](https://docker.com)
+- [CORS Browser Extension](https://chrome.google.com/webstore/detail/cross-domain-cors/mjhpgnbimicffchbodmgfnemoghjakai)
 
 
 
@@ -11,7 +12,7 @@ First of all, make sure you have all prerequisites installed:
 After checking the prerequisites, follow these simple steps to install and use Fluentbit Dashboard:
 
 ```
-docker run -ti -p 127.0.0.1:2020:2020 fluent/fluent-bit:1.4 /fluent-bit/bin/fluent-bit -H -i cpu -i cpu -F stdout -m '*' -o stdout -m '*' -f 1
+docker run -ti -p 127.0.0.1:2020:2020 fluent/fluent-bit:1.4 /fluent-bit/bin/fluent-bit -H -i random -i cpu -F stdout -m '*' -o stdout -m '*' -f 1
 ```
 
 ```
@@ -39,6 +40,10 @@ $ yarn build
 
 # build for production and view the bundle analyzer report.
 $ yarn build --report
+```
+
+```
+You can also use [Docker Image](https://hub.docker.com/r/championshuttler/fluentbit-dashboard) to start the frontend dashboard.
 ```
 
 ## Features
