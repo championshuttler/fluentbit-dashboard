@@ -72,7 +72,3 @@ $ yarn serve:book
 # build vuestic project into bundle
 $ yarn build
 ```
-
-## Credits
-
-<a href="https://github.com/epicmaxco/vuestic-admin/graphs/contributors">Hall of fame!</a>
