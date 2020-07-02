@@ -128,25 +128,6 @@ export default new Router({
           ],
         },
         {
-          name: 'tables',
-          path: 'tables',
-          component: EmptyParentComponent,
-          children: [
-            {
-              name: 'markup',
-              path: 'markup',
-              component: () => import('../components/markup-tables/MarkupTables.vue'),
-              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables', // TODO Update docs
-            },
-            {
-              name: 'data',
-              path: 'data',
-              component: () => import('../components/data-tables/DataTables.vue'),
-              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables', // TODO Add docs
-            },
-          ],
-        },
-        {
           name: 'ui',
           path: 'ui',
           component: EmptyParentComponent,
