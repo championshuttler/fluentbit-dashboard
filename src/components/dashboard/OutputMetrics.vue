@@ -3,7 +3,7 @@
     <div class="flex md12 xs12">
       <va-card :style="computedStyle">
         <template slot="header">
-          <h5 class="mt-0 mb-0">Output Metrics</h5>
+          <h5 class="mt-0 mb-0">Output Plugin Metrics</h5>
         </template>
         <div class="row">
           <line-chart class="flex xs6 md6" v-for="(value, name) in metrics" :key="name" :data-set="dataSets[name]" :metric-name="name" :labels="timeLabels"></line-chart>
@@ -47,6 +47,11 @@ export default {
       const now = moment()
       return [
         `${now.format('h:mm')}`,
+        `${now.add('minute', 2).format('h:mm')}`,
+        `${now.add('minute', 2).format('h:mm')}`,
+        `${now.add('minute', 2).format('h:mm')}`,
+        `${now.add('minute', 2).format('h:mm')}`,
+        `${now.add('minute', 2).format('h:mm')}`,
         `${now.add('minute', 2).format('h:mm')}`,
         `${now.add('minute', 2).format('h:mm')}`,
         `${now.add('minute', 2).format('h:mm')}`,
