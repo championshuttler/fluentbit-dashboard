@@ -49,6 +49,11 @@ export default {
         `${now.add('minute', 2).format('h:mm')}`,
         `${now.add('minute', 2).format('h:mm')}`,
         `${now.add('minute', 2).format('h:mm')}`,
+        `${now.add('minute', 2).format('h:mm')}`,
+        `${now.add('minute', 2).format('h:mm')}`,
+        `${now.add('minute', 2).format('h:mm')}`,
+        `${now.add('minute', 2).format('h:mm')}`,
+        `${now.add('minute', 2).format('h:mm')}`,
       ]
     },
     appendDataSet (metricName, lineLabel, data) {
@@ -56,7 +61,7 @@ export default {
       for (let index = 0; index < metric.length; index++) {
         const element = metric[index]
         if (element.label === lineLabel) {
-          if (element.data.length >= 5) element.data.shift()
+          if (element.data.length >= 10) element.data.shift()
           element.data.push(data)
           break
         }
