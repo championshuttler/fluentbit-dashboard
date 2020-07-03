@@ -31,6 +31,7 @@ export default {
               },
               ticks: {
                 fontColor: 'white',
+                position: 'right',
               },
               scaleLabel: {
                 display: true,
@@ -42,12 +43,14 @@ export default {
           ],
           yAxes: [{
             display: true,
+            position: 'right',
             gridLines: {
               color: 'rgba(161, 161, 161, 0.973)',
               lineWidth: 1,
             },
             ticks: {
               fontColor: 'white',
+              maxTicksLimit: 6,
             },
             scaleLabel: {
               display: true,
