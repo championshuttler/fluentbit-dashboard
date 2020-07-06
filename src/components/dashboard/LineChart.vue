@@ -51,6 +51,7 @@ export default {
             ticks: {
               fontColor: 'white',
               maxTicksLimit: 6,
+              beginAtZero: true,
             },
             scaleLabel: {
               display: true,
