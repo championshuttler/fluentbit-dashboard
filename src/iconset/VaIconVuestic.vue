@@ -1,5 +1,5 @@
 <template>
-  <img src="../assets/icons/logo.png" :style="logoStyle"/>
+  <img src="../assets/icons/logo.png" :style="logoStyle" :adaptive="true" />
 </template>
 <script>
 
@@ -10,6 +10,8 @@ export default {
     logoStyle () {
       return {
         color: 'white',
+        width: 'auto',
+        height: 'auto',
       }
     },
     themeGradientId () {
