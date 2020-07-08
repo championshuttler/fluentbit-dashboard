@@ -1,6 +1,6 @@
 language: node_js
 before_script:
-  - npm install -g vue-cli-service
+  - npm install -g @vue/cli-service
 node_js:
   - "10"
 deploy:
