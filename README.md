@@ -1,7 +1,7 @@
 
 ## Installation
 
-First of all, make sure you have all prerequisites installed:
+First of all, make sure you have all these  prerequisites installed:
 - [Node.js](https://nodejs.org/en/) (>=8.9)
 - [npm](https://www.npmjs.com/get-npm) version 3+ (or [yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) version 1.16+)
 - [Docker](https://docker.com)
