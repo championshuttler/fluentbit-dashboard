@@ -4,14 +4,17 @@ const { reactiveProp } = mixins
 export default {
   extends: Line,
   mixins: [reactiveProp],
-  data () {
-    return {
-      options: {},
-    }
-  },
   props: {
     options: {
       type: Object,
+    },
+  },
+  watch: {
+    chartData: {
+      handler (newValue, oldValue) {
+        // Update graph on data change to solve update problem
+        this.$data._chart.update()
+      },
     },
   },
   mounted () {

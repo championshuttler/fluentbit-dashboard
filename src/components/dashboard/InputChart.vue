@@ -75,7 +75,7 @@ export default {
 
           const array = []
           const date = new Date()
-
+          console.log('Minutes', date.getMinutes())
           // Here we will find the closest time
           // If it's 13:09 we'll iterate to 13:15 and stop
           //
@@ -119,12 +119,12 @@ export default {
 
     startInterval () {
       setInterval(() => {
+        console.log()
         this.getInputPlugin()
       }, 2000)
     },
 
   },
-
   created () {
     this.fillData()
     this.startInterval()
