@@ -1,0 +1,12 @@
+{
+    "input": { 
+      "cpu.0":{"records":1617,"bytes":512589},
+      "cpu.1":{"records":1617,"bytes":512589}
+    },
+    "filter":{ 
+      "stdout.0":{"drop_records":0,"add_records":0}
+    },
+    "output":{ 
+      "stdout.0":{"proc_records":3232,"proc_bytes":1024544,"errors":0,"retries":0,"retries_failed":0}
+    }
+}

@@ -1,0 +1,5 @@
+describe('Adapter', () => {
+  it('Should', () => {
+
+  })
+})
