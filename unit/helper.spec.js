@@ -1,9 +1,9 @@
-import { getInitDate, replaceLastPopFirst, getObjectFromArray, defaultDataSetConfig, addIfNotExist } from '../src/utils/helper'
+import { getInitTime, replaceLastPopFirst, getObjectFromArray, defaultDataSetConfig, addIfNotExist } from '../src/utils/helper'
 
 describe('Helpers', () => {
   // Mock test is required so that jest does not complain we have no tests on job.
   it('Test Get Moment Date', () => {
-    const arr = getInitDate(5)
+    const arr = getInitTime(5)
     expect(arr.length).toBe(5)
   })
 
