@@ -1,6 +1,6 @@
 {
   "name": "fluentbit-dashboard",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "description": "Web Monitoring UI for Fluent-Bit",
   "author": "championshuttler <championshuttler@gmail.com>",
@@ -29,7 +29,6 @@
     "font-awesome": "^4.7.0",
     "ionicons": "^4.6.3",
     "lodash": "^4.17.15",
-    "medium-editor": "^5.23.3",
     "moment": "^2.27.0",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.16.0",

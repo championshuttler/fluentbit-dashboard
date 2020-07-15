@@ -13,10 +13,6 @@ RUN npm install && npm run build && npm prune --production
 # run node prune
 RUN /usr/local/bin/node-prune
 
-# remove unused dependencies
-RUN rm -rf node_modules/ammap3
-RUN rm -rf node_modules/amcharts
-
 FROM node:10-alpine
 
 WORKDIR /app
