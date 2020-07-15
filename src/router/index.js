@@ -105,29 +105,6 @@ export default new Router({
           ],
         },
         {
-          name: 'forms',
-          path: 'forms',
-          component: EmptyParentComponent,
-          children: [
-            {
-              name: 'form-elements',
-              path: 'form-elements',
-              component: () => import('../components/forms/form-elements/FormElements.vue'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/inputs',
-              },
-            },
-            {
-              name: 'medium-editor',
-              path: 'medium-editor',
-              component: () => import('../components/forms/medium-editor/MediumEditor.vue'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Medium-Editor',
-              },
-            },
-          ],
-        },
-        {
           name: 'ui',
           path: 'ui',
           component: EmptyParentComponent,
@@ -167,14 +144,6 @@ export default new Router({
               component: () => import('../components/ui/timelines/Timelines'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Timelines',
-              },
-            },
-            {
-              name: 'notifications',
-              path: 'notifications',
-              component: () => import('../components/ui/notifications/Notifications'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Notifications',
               },
             },
             {
@@ -227,14 +196,6 @@ export default new Router({
               },
             },
             {
-              name: 'file-upload',
-              path: 'file-upload',
-              component: () => import('../components/ui/file-upload/FileUpload'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/File-Upload',
-              },
-            },
-            {
               name: 'chips',
               path: 'chips',
               component: () => import('../components/ui/chips/Chips'),
@@ -280,14 +241,6 @@ export default new Router({
               name: 'popovers',
               path: 'popovers',
               component: () => import('../components/ui/popovers/Popovers'),
-            },
-            {
-              name: 'chat',
-              path: 'chatPage',
-              component: () => import('../components/ui/chat/ChatPage'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chat',
-              },
             },
             {
               name: 'tabs',
