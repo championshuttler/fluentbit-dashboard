@@ -158,19 +158,9 @@
         "country": "Country",
         "infiniteConnections": "Infinite connections",
         "addConnection": "Add Connection"
-      },
-      "bankDetails": {
-        "title": "Bank Details",
-        "detailsFields": "Details Fields",
-        "bankName": "Bank Name",
-        "accountName": "Account Name",
-        "sortCode": "Sort Code",
-        "accountNumber": "Account Number",
-        "notes": "Notes",
-        "sendDetails": "Send Details"
       }
     },
-    "navigationLayout": "navigation layout",
+    "navigationLayout": "Navigation Layout",
     "topBarButton": "Top Bar",
     "sideBarButton": "Side Bar"
   },
