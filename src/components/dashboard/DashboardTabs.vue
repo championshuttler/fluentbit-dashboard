@@ -7,9 +7,6 @@
       <va-tab>
         {{$t('dashboard.tabs.billingAddress.title')}}
       </va-tab>
-      <va-tab>
-        {{$t('dashboard.tabs.bankDetails.title')}}
-      </va-tab>
     </va-tabs>
     <va-separator/>
     <component :is="tabs[tabsState]" @submit="submit"/>
@@ -19,14 +16,12 @@
 <script>
 import OverviewTab from './dashboard-tabs/OverviewTab'
 import BillingAddressTab from './dashboard-tabs/BillingAddressTab'
-import BankDetailsTab from './dashboard-tabs/BankDetailsTab'
 
 export default {
   name: 'DashboardTabs',
   components: {
     OverviewTab,
     BillingAddressTab,
-    BankDetailsTab,
   },
   data () {
     return {
@@ -34,7 +29,6 @@ export default {
       tabs: [
         'OverviewTab',
         'BillingAddressTab',
-        'BankDetailsTab',
       ],
     }
   },
