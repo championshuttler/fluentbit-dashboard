@@ -31,7 +31,7 @@ const state = {
       taken: false,
     },
     {
-      color: 'grey',
+      color: 'rgba(17, 156, 133, 0.4)',
       taken: false,
     },
     {
@@ -43,23 +43,23 @@ const state = {
       taken: false,
     },
     {
-      color: 'rgba(17, 99, 156,0.4)',
+      color: '#9f64de',
       taken: false,
     },
     {
-      color: 'rgba(17, 99, 156,0.4)',
+      color: '#ce64de',
       taken: false,
     },
     {
-      color: 'blue',
-      taken: false,
-    },
-    {
-      color: 'blue',
+      color: '#15a1d4',
       taken: false,
     },
     {
       color: 'blue',
+      taken: false,
+    },
+    {
+      color: '#15d448',
       taken: false,
     },
   ],
