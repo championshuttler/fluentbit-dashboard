@@ -5,9 +5,9 @@
     @cancel="hideConfig"
     position="top"
     size="large"
-    :title="'Enter Configuration Details'"
-    :message="'You need to enter Host and Port of the endpoint'"
-    :okText="'Submit'"
+    :title="'Configuration Details'"
+    :message="'Enter Host and Port of the endpoint'"
+    :okText="'Connect'"
     noOutsideDismiss
     cancelClass="none"
     noEscDismiss=false
