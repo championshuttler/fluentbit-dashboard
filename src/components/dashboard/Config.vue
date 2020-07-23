@@ -1,4 +1,3 @@
-
 <template>
   <va-modal
     v-model="showConfig"
@@ -11,7 +10,7 @@
     :okText="'Submit'"
     noOutsideDismiss
     cancelClass="none"
-    noEscDismiss
+    noEscDismiss=false
   >
     <slot>
       <va-input
@@ -28,29 +27,36 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
 export default {
+  data () {
+    return {
+      stagePort: null,
+      stageHost: null,
+    }
+  },
   computed: {
-    port: {
-      get () {
-        return this.appPort
-      },
-      set (value) {
-        return value
-      },
-    },
-    host: {
-      get () {
-        return this.apppHost
-      },
-      set (value) {
-        return value
-      },
-    },
     ...mapGetters({
       showConfigStore: 'showConfig',
       appPort: 'appPort',
       appHost: 'appHost',
     }),
+    port: {
+      get () {
+        return this.appPort
+      },
+      set (value) {
+        this.stagePort = value
+      },
+    },
+    host: {
+      get () {
+        return this.appHost
+      },
+      set (value) {
+        this.stageHost = value
+      },
+    },
     showConfig: {
       get () {
         return this.showConfigStore
@@ -65,14 +71,12 @@ export default {
       this.$store.commit('updateShowConfig', false)
     },
     submit () {
-      this.$store.commit('updateShowConfig', false)
+      this.hideConfig()
+      const host = this.stageHost || this.host
+      const port = this.stagePort || this.port
       this.$store.commit('updateConfig', {
-        port: this.port,
-        host: this.host,
-      })
-      this.$emit('configUpdated', {
-        port: this.port,
-        host: this.host,
+        port,
+        host,
       })
     },
   },

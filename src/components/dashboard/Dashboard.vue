@@ -1,15 +1,19 @@
 <template>
   <div class="dashboard">
-    <va-notification color="danger" v-if="error" closeable>
-      <va-badge color="danger">
-        Error
-      </va-badge>
-      Check if the backend is up or check CORS extension is enabled or not.
-    </va-notification>
-    <template v-if="!error">
-      <input-plugin  :data="inputPluginData"></input-plugin>
-      <filter-plugin :data="filterPluginData"></filter-plugin>
-      <output-plugin :data="outputPluginData"></output-plugin>
+    <config-input></config-input>
+    <template>
+      <va-notification color="danger" v-if="error" closeable>
+        <va-badge color="danger">
+          Error
+        </va-badge>
+        Can't establish connection to {{host}}:{{port}} check if host is receiving connection or check CORS extension.
+        <va-button @click="showConfig">Settings</va-button>
+      </va-notification>
+      <template v-show="!error">
+        <input-plugin  :data="inputPluginData"></input-plugin>
+        <filter-plugin :data="filterPluginData"></filter-plugin>
+        <output-plugin :data="outputPluginData"></output-plugin>
+      </template>
     </template>
   </div>
 </template>
@@ -18,16 +22,23 @@
 import InputPlugin from '../plugins/input/Index'
 import FilterPlugin from '../plugins/filters/Index'
 import OutputPlugin from '../plugins/output/Index'
-
+import ConfigInput from './Config'
 import axios from 'axios'
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'dashboard',
   components: {
     InputPlugin,
     FilterPlugin,
     OutputPlugin,
+    ConfigInput,
   },
   computed: {
+    ...mapGetters({
+      port: 'appPort',
+      host: 'appHost',
+    }),
     inputPluginData () {
       if (this.apiData) return this.apiData.input
       return false
@@ -42,10 +53,13 @@ export default {
     },
   },
   methods: {
-    axiosFetch (api) {
+    showConfig () {
+      this.$store.commit('updateShowConfig', true)
+    },
+    axiosFetch () {
       const self = this
       return axios
-        .get(`${api}/api/v1/metrics`)
+        .get(`http://${this.host}:${this.port}/api/v1/metrics`)
         .then(({ data }) => {
           self.error = false
           return data
@@ -55,9 +69,16 @@ export default {
         })
     },
     makeRequest () {
-      const api = 'http://127.0.0.1:2020'
-      this.axiosFetch(api).then((data) => {
-        this.apiData = data
+      const self = this
+      console.log('Fetch...')
+      self.axiosFetch().then((data) => {
+        self.apiData = data
+        console.log('Fetched ...')
+        self.interval = setInterval(() => {
+          self.axiosFetch().then((data) => {
+            self.apiData = data
+          })
+        }, 10000)
       })
     },
   },
@@ -65,15 +86,12 @@ export default {
     return {
       apiData: null,
       error: false,
+      interval: null,
+      showSmallModal: false,
     }
   },
   mounted () {
-    // To initialize values
     this.makeRequest()
-    this.makeRequest()
-    setInterval(() => {
-      this.makeRequest(true)
-    }, 10000)
   },
 }
 </script>

@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const { argv } = require('yargs')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 
 const version = require('./package.json').version
@@ -12,6 +13,13 @@ const getLastCommitHash = () => {
   return hash.slice(0, 6)
 }
 
+const getPort = () => {
+  return argv.port
+}
+
+const getHost = () => {
+  return argv.host
+}
 const lintOnSave = true
 
 module.exports = {
@@ -50,6 +58,8 @@ module.exports = {
         })]
       ),
       new webpack.DefinePlugin({
+        API_HOST: getHost(),
+        API_PORT: getPort(),
         VERSION: JSON.stringify(version),
         TIMESTAMP: JSON.stringify(timeStamp),
         COMMIT: JSON.stringify(getLastCommitHash()),

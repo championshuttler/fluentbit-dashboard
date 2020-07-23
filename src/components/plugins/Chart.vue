@@ -28,6 +28,7 @@
 <script>
 import LineChart from '../chart/LineChart'
 import _ from 'lodash'
+import AppConfig from '../../../app.config'
 
 export default {
   mounted () {
@@ -54,8 +55,13 @@ export default {
         }
       }
     },
+    canPushDiff (metric) {
+      const metricConfig = AppConfig.plugins[metric]
+      if (!metricConfig) return false
+      return metricConfig.showDiff || false
+    },
     pushData (data, metric) {
-      if (this.showDifference) {
+      if (this.canPushDiff(metric)) {
         this.pushDifference(data, metric)
         this.saveAsPrevious(data, metric)
       } else {

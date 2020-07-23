@@ -106,7 +106,7 @@
       :okText=" $t('modal.close') "
       :message=" $t('modal.staticMessage') "
       noOutsideDismiss
-      noEscDismiss
+      noEscDismiss=false
     />
   </div>
 </template>

@@ -5,5 +5,11 @@ export default {
     proc_records: {
       showDiff: true,
     },
+    records: {
+      showDiff: true,
+    },
+    bytes: {
+      showDiff: true,
+    },
   },
 }
