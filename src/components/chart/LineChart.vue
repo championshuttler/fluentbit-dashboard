@@ -6,6 +6,7 @@
 
 <script>
 import Chart from './index.js'
+import moment from 'moment'
 import {
   getInitTime,
   replaceLastPopFirst,
@@ -42,6 +43,7 @@ export default {
         this.dataSets[0].data = replaceLastPopFirst(this.dataSets[0].data, data)
       }
       this.dataSets[0].data = replaceLastPopFirst(arr, data)
+      replaceLastPopFirst(this.privateLabel, moment().format('mm:ss'))
     },
     buildData () {
       this.chartData = {

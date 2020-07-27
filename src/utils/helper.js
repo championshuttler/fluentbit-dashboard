@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import moment from 'moment'
 
 /**
  * Returns an array of date of the specified count
@@ -7,9 +8,10 @@ import _ from 'lodash'
 export function getInitTime (count) {
   const dates = Array(count).fill(null)
   for (let index = 0; index < count; index++) {
+    const now = moment()
+    now.subtract('seconds', index * 10)
     const start = (count - index) - 1
-    const multiliper = index + 1
-    dates.splice(start, 1, multiliper * 10)
+    dates.splice(start, 1, now.format('mm:ss'))
   }
   return dates
 }

@@ -1,7 +1,7 @@
 <template>
-  <div class="grid row">
+  <div class="grid row" v-if="data">
     <va-badge class="mb-2" color="success">Filter</va-badge>
-    <chart  v-for="(plugin, index) in plugins" :key="index" :data="plugin" :pluginName="index" :show-difference="false"></chart>
+    <chart  v-for="(plugin, index) in plugins" :key="index" :data="plugin" :pluginName="index"></chart>
   </div>
 </template>
 

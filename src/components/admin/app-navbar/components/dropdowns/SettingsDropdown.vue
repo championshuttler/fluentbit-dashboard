@@ -1,5 +1,14 @@
 <template>
-  <va-dropdown
+  <div @click="showConfig">
+    <va-icon
+      name="vuestic-iconset vuestic-iconset-settings"
+      style="font-size: 1.4rem; display: flex;"
+      class="settings-dropdown__icon"
+      slot="anchor"
+      :color="contextConfig.invertedColor ? $themes.gray : 'white'"
+    />
+  </div>
+  <!-- <va-dropdown
     class="settings-dropdown"
     offset="0, 16px"
   >
@@ -23,7 +32,7 @@
         small
       />
     </div>
-  </va-dropdown>
+  </va-dropdown> -->
 </template>
 
 <script>
@@ -36,6 +45,11 @@ export default {
   mixins: [ColorThemeMixin],
   props: {
     isTopBar: Boolean,
+  },
+  methods: {
+    showConfig () {
+      this.$store.commit('updateShowConfig', true)
+    },
   },
   data () {
     return {

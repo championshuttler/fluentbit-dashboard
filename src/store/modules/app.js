@@ -1,7 +1,18 @@
+import AppConfig from '../../../app.config'
+
+const getItem = (object, item) => {
+  if (object === null) return null
+  if (typeof object === 'object') return object[item]
+  return null
+}
+
 const state = {
+  port: getItem(JSON.parse(localStorage.getItem('fluent.config')), 'port') || getItem(AppConfig, 'port'),
+  host: getItem(JSON.parse(localStorage.getItem('fluent.config')), 'host') || getItem(AppConfig, 'host'),
   sidebar: {
     opened: false,
   },
+  showConfig: false,
   graphColors: [
     {
       color: 'red',
@@ -20,7 +31,7 @@ const state = {
       taken: false,
     },
     {
-      color: 'grey',
+      color: 'rgba(17, 156, 133, 0.4)',
       taken: false,
     },
     {
@@ -32,23 +43,23 @@ const state = {
       taken: false,
     },
     {
-      color: 'rgba(17, 99, 156,0.4)',
+      color: '#9f64de',
       taken: false,
     },
     {
-      color: 'rgba(17, 99, 156,0.4)',
+      color: '#ce64de',
       taken: false,
     },
     {
-      color: 'blue',
-      taken: false,
-    },
-    {
-      color: 'blue',
+      color: '#15a1d4',
       taken: false,
     },
     {
       color: 'blue',
+      taken: false,
+    },
+    {
+      color: '#15d448',
       taken: false,
     },
   ],
@@ -75,6 +86,18 @@ const mutations = {
   },
   changeColor (state, index) {
     state.graphColors[index].taken = true
+  },
+  updateShowConfig (state, value) {
+    state.showConfig = value
+  },
+  updateConfig (state, obj) {
+    if (typeof obj !== 'object') throw new Error('value must be an object')
+    state.port = obj.port
+    state.host = obj.host
+    localStorage.setItem('fluent.config', JSON.stringify({
+      host: obj.host,
+      port: obj.port,
+    }))
   },
 }
 
