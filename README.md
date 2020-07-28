@@ -10,13 +10,15 @@ First of all, make sure you have all these  prerequisites installed:
 	* [Chrome](https://chrome.google.com/webstore/detail/cross-domain-cors/mjhpgnbimicffchbodmgfnemoghjakai/related)
 	
 
-
-
 After checking the prerequisites, follow these simple steps to install and use Fluentbit Dashboard:
+
+### Run fluentbit backend for the dummy data:
 
 ```
 docker run -ti -p 127.0.0.1:2020:2020 fluent/fluent-bit:1.5 /fluent-bit/bin/fluent-bit -H -i random -i cpu -F stdout -m '*' -o stdout -m '*' -f 1
 ```
+
+### For Dashboard:
 
 ```
 $ npm install
@@ -45,12 +47,11 @@ $ yarn build
 $ yarn build --report
 ```
 
-```
-You can also use [Docker Image](https://hub.docker.com/r/championshuttler/fluentbit-dashboard) to start the frontend dashboard.
-```
+
+**Note**: You can also use [Docker Image](https://hub.docker.com/r/championshuttler/fluentbit-dashboard) to start the frontend dashboard.
 
 ## Contributing
-Thanks for all your wonderful PRs, issues and ideas. You’re always welcome to [join](https://github.com/championshuttler/fluentbit-dashboard/blob/master/.github/CONTRIBUTING.md)!
+See [CONTRIBUTING.md](https://github.com/championshuttler/fluentbit-dashboard/blob/master/.github/CONTRIBUTING.md)!
 
 ## License
-[MIT](https://github.com/epicmaxco/vuestic-admin/blob/master/LICENSE) license.
+[MIT](https://github.com/championshuttler/fluentbit-dashboard/blob/master/LICENSE) license.
