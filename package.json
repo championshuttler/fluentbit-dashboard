@@ -1,6 +1,6 @@
 {
   "name": "fluentbit-dashboard",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "description": "Web Monitoring UI for Fluent-Bit",
   "author": "championshuttler <championshuttler@gmail.com>",
