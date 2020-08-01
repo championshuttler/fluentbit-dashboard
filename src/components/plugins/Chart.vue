@@ -6,14 +6,6 @@
           <div class="flex lg11">
             <h5 class="mt-0 mb-0">{{pluginName.toUpperCase()}}</h5>
           </div>
-          <div class="flex lg1">
-            <div id="countdown">
-              <div id="countdown-number">{{counter}}</div>
-              <svg>
-                <circle r="18" cx="20" cy="20"></circle>
-              </svg>
-            </div>
-          </div>
         </div>
       </template>
       <div class="row">
@@ -40,7 +32,7 @@ export default {
   computed: {
     computedStyle () {
       return {
-        backgroundColor: 'rgba(26, 26, 26, 0.966)',
+        backgroundColor: 'rgba(26, 26, 26, 0.5)',
         color: 'white',
       }
     },
@@ -113,50 +105,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-#countdown {
-  display: inline-block;
-  position: relative;
-  margin: auto;
-  margin-top: 5px;
-  height: 40px;
-  width: 40px;
-  text-align: center;
-}
-
-#countdown-number {
-  color: white;
-  display: inline-block;
-  line-height: 40px;
-}
-
-svg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  transform: rotateY(-180deg) rotateZ(-90deg);
-}
-
-svg circle {
-  stroke-dasharray: 113px;
-  stroke-dashoffset: 0;
-  stroke-linecap: round;
-  stroke-width: 2px;
-  stroke: white;
-  fill: none;
-  animation: countdown 10s linear infinite forwards;
-}
-
-@keyframes countdown {
-  from {
-    stroke-dashoffset: 0;
-  }
-
-  to {
-    stroke-dashoffset: 113px;
-  }
-}
-</style>
