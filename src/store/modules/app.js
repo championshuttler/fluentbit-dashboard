@@ -19,10 +19,6 @@ const state = {
       taken: false,
     },
     {
-      color: '#86cede',
-      taken: false,
-    },
-    {
       color: 'blue',
       taken: false,
     },
@@ -43,15 +39,7 @@ const state = {
       taken: false,
     },
     {
-      color: '#9f64de',
-      taken: false,
-    },
-    {
       color: '#ce64de',
-      taken: false,
-    },
-    {
-      color: '#15a1d4',
       taken: false,
     },
     {
