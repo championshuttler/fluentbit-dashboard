@@ -19,7 +19,7 @@ const state = {
       taken: false,
     },
     {
-      color: 'rgba(17, 99, 156,0.4)',
+      color: '#86cede',
       taken: false,
     },
     {
@@ -31,7 +31,7 @@ const state = {
       taken: false,
     },
     {
-      color: 'rgba(17, 156, 133, 0.4)',
+      color: '#ddb957',
       taken: false,
     },
     {
