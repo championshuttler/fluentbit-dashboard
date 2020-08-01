@@ -9,7 +9,7 @@ export function getInitTime (count) {
   const dates = Array(count).fill(null)
   for (let index = 0; index < count; index++) {
     const now = moment()
-    now.subtract('seconds', index * 10)
+    now.subtract(index * 10, 'seconds')
     const start = (count - index) - 1
     dates.splice(start, 1, now.format('mm:ss'))
   }
