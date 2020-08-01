@@ -88,7 +88,7 @@ export default {
               this.dataSets[metricName] = []
               this.dataSets[metricName].push({
                 label: lineLabel,
-                fill: false,
+                fill: true,
                 backgroundColor: 'rgba(17, 99, 156,0.4)',
                 borderColor: 'rgba(17, 99, 156,1)',
                 borderDash: [],
@@ -119,7 +119,7 @@ export default {
                 pointBackgroundColor: 'rgb(50, 199, 102)',
                 pointHoverBackgroundColor: 'rgba(50, 199, 102,1)',
                 pointHoverBorderColor: 'rgba(50, 199, 102,1)',
-                fill: false,
+                fill: true,
                 data: [lineData],
               })
             }
