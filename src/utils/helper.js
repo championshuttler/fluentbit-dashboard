@@ -105,12 +105,15 @@ export function defaultDataSetConfig (count, color) {
   const data = Array(count).fill(null)
   const lineColor = color
   return {
-    fill: false,
+    fill: true,
+    fillOpacity: 0.3,
+    fillGradient: 0,
     backgroundColor: color,
     borderColor: lineColor,
     borderDash: [],
     borderDashOffset: 0.0,
-    borderJoinStyle: 'miter',
+    borderJoinStyle: 'round',
+    borderWidth: 1,
     pointBorderColor: 'rgba(17, 99, 156,0.4)',
     pointBackgroundColor: 'rgb(17, 99, 156)',
     pointBorderWidth: 1,
