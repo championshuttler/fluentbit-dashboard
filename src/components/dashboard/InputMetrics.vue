@@ -22,7 +22,7 @@ export default {
   computed: {
     computedStyle () {
       return {
-        backgroundColor: 'rgba(26, 26, 26, 0.966)',
+        backgroundColor: 'rgba(26, 26, 26, 0.5)',
         color: 'white',
       }
     },

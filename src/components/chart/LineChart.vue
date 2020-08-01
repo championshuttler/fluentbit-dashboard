@@ -91,7 +91,7 @@ export default {
 
   .chart {
     color: rgba(161, 161, 161, 0.973);
-    background-color: rgba(46, 45, 45, 0.966);
+    background-color: rgba(46, 45, 45, 0.5);
     max-width: 48%;
     min-width: 48%;
 
