@@ -5,6 +5,5 @@ dist/
 .gitignore
 Dockerfile
 README.md
-.git
 *Dockerfile*
 *docker-compose*
