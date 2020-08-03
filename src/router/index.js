@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import AuthLayout from '../components/auth/AuthLayout'
 import AppLayout from '../components/admin/AppLayout'
 
 Vue.use(Router)
@@ -18,31 +17,6 @@ export default new Router({
     {
       path: '*',
       redirect: { name: 'dashboard' },
-    },
-    {
-      path: '/auth',
-      component: AuthLayout,
-      children: [
-        {
-          name: 'login',
-          path: 'login',
-          component: () => import('../components/auth/login/Login.vue'),
-        },
-        {
-          name: 'signup',
-          path: 'signup',
-          component: () => import('../components/auth/signup/Signup.vue'),
-        },
-        {
-          name: 'recover-password',
-          path: 'recover-password',
-          component: () => import('../components/auth/recover-password/RecoverPassword.vue'),
-        },
-        {
-          path: '',
-          redirect: { name: 'login' },
-        },
-      ],
     },
     {
       path: '/404',
@@ -80,29 +54,6 @@ export default new Router({
           path: 'dashboard',
           component: () => import('../components/dashboard/Dashboard.vue'),
           default: true,
-        },
-        {
-          name: 'statistics',
-          path: 'statistics',
-          component: EmptyParentComponent,
-          children: [
-            {
-              name: 'charts',
-              path: 'charts',
-              component: () => import('../components/statistics/charts/Charts.vue'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Charts',
-              },
-            },
-            {
-              name: 'progress-bars',
-              path: 'progress-bars',
-              component: () => import('../components/statistics/progress-bars/ProgressBars.vue'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Progress-Bars',
-              },
-            },
-          ],
         },
         {
           name: 'ui',
