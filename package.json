@@ -27,7 +27,7 @@
     "extend": "3.0.2",
     "font-awesome": "^4.7.0",
     "ionicons": "^4.6.3",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "moment": "^2.27.0",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.16.0",
